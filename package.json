@@ -1,0 +1,63 @@
+{
+  "name": "md-links-lab11",
+  "version": "1.0.0",
+  "description": "lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportan algunas estadísticas.",
+  "main": "src/index.js",
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishelpa/LIM011-fe-md-links.git"
+  },
+  "author": {
+    "name": "Mishel Paredes",
+    "email": "judithparedesartica@gmail.com"
+  },
+  "files": [
+    ""
+  ],
+  "bin": {
+    "md-links": "src/cli.js"
+  },
+  "keywords": [
+    "links",
+    "javascript",
+    "jest",
+    "nodejs",
+    "markdown"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.1.2",
+    "jest": "^24.8.0",
+    "regenerator-runtime": "^0.13.1"
+  },
+  "bugs": {
+    "url": "https://github.com/mishelpa/LIM011-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/mishelpa/LIM011-fe-md-links#readme",
+  "dependencies": {
+    "marked": "^0.8.0",
+    "node-fetch": "^2.6.0",
+    "jest-fetch-mock": "^3.0.1"
+  }
+}

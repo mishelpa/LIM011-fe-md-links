@@ -1,13 +1,10 @@
 {
-  "name": "md-links-lab11",
+  "name": "md-links-jm",
   "version": "1.0.0",
   "description": "lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportan algunas estadísticas.",
-  "main": "src/index.js",
+  "main": "index.js",
   "jest": {
-    "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ]
+    "automock": false
   },
   "directories": {
     "test": "test"
@@ -35,7 +32,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint": "eslint --ext .js test/",
     "pretest": "npm run eslint",
     "test": "jest --coverage"
   },

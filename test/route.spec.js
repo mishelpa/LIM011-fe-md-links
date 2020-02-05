@@ -1,6 +1,6 @@
 require('jest-fetch-mock').enableMocks();
 const fetch = require('node-fetch');
-const index = require('../src/index');
+const index = require('../index');
 
 const ruta = ['/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md'];
 const array = [

@@ -3,12 +3,8 @@ const fetch = require('node-fetch');
 const index = require('../index');
 
 const ruta = ['/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md'];
+
 const array = [
-  {
-    href: 'https://es.wikipedia.org/wiki/Markdown/',
-    text: 'Markdown',
-    file: '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md',
-  },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown/',
     text: 'Markdown',
@@ -26,12 +22,11 @@ const array2 = [
   },
 ];
 
+const validate = '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md https://es.wikipedia.org/wiki/Markdown/ ok 200 Markdown\n';
 
-const text = '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md https://es.wikipedia.org/wiki/Markdown/ ok 200 Markdown\n';
+const stats = 'Total: 1 \nUnique: 1';
 
-const text2 = 'Total: 1 \nUnique: 1';
-
-const text3 = 'Total: 1 \nUnique: 1 \nBroken: 0';
+const valStat = 'Total: 1 \nUnique: 1 \nBroken: 0';
 
 // Test de la funcion isAbsolutePath
 describe('isAbs', () => {
@@ -58,29 +53,29 @@ describe('createObjLink', () => {
 
 describe('getHttp', () => {
   it('deberia retornar un array de objetos de 5 propiedades', () => index.getHttp('./src').then((data) => {
-    expect(data[0].text).toBe('Markdown');
+    expect(data).toStrictEqual(array2);
   }));
 });
 
 describe('options', () => {
   it('deberia mostrar un string', () => {
-    expect(index.options(array2, 'validate')).toEqual(text);
+    expect(index.options(array2, 'validate')).toEqual(validate);
   });
   it('deberia mostrar 2 estadisticas', () => {
-    expect(index.options(array2, 'stats')).toEqual(text2);
+    expect(index.options(array2, 'stats')).toEqual(stats);
   });
   it('deberia mostrar 3 estadisticas', () => {
-    expect(index.options(array2, 'valStat')).toBe(text3);
+    expect(index.options(array2, 'valStat')).toBe(valStat);
   });
 });
 
 describe('mdLinks', () => {
   it('deberia brindar array de objetos con 5 propiedades', () => index.mdLinks('./src', { validate: true }).then((data) => {
-    expect(typeof data).toBe('object');
+    expect(data).toStrictEqual(array2);
   }));
 
   it('deberia brindar array de objetos con 3 propiedades', () => index.mdLinks('./src', { validate: false }).then((data) => {
-    expect(typeof data).toBe('object');
+    expect(data).toStrictEqual(array);
   }));
 });
 

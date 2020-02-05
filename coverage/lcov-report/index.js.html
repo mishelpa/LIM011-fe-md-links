@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.3% </span>
+                <span class="strong">93.51% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>72/74</span>
+                <span class='fraction'>72/77</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>15/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.41% </span>
+                <span class="strong">93.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>62/63</span>
+                <span class='fraction'>62/66</span>
             </div>
         
             
@@ -156,11 +156,11 @@
 <a name='L98'></a><a href='#L98'>98</a>
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -171,6 +171,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">47x</span>
 <span class="cline-any cline-yes">31x</span>
@@ -187,25 +188,28 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -261,8 +265,6 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 &nbsp;
-const files = [];
-&nbsp;
 const isAbs = (route) =&gt; {
   let newRoute = '';
   if (path.isAbsolute(route)) newRoute = route;
@@ -271,6 +273,7 @@ const isAbs = (route) =&gt; {
 };
 &nbsp;
 const recursion = (route) =&gt; {
+  const files = [];
   const array = (docs) =&gt; {
     if (!fs.statSync(docs).isDirectory()) {
       if (path.extname(docs) === '.md') files.push(path.resolve(docs));
@@ -293,8 +296,6 @@ const createObjLink = (route) =&gt; {
   return links;
 };
 &nbsp;
-// const APIRequest = ruta =&gt; fetch(ruta).then(res =&gt; res.json());
-&nbsp;
 const getHttp = (route) =&gt; {
   const promise = new Promise((resolve, reject) =&gt; {
     const arrayPromise = [];
@@ -306,6 +307,11 @@ const getHttp = (route) =&gt; {
           else <span class="cstat-no" title="statement not covered" >statusRoute = 'fail';</span>
           const obj = { ...element, port: res.status, status: statusRoute };
           return obj;
+        })
+        .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >          console.log(err);</span>
+          const obj = <span class="cstat-no" title="statement not covered" >{ ...element, port: 'No hay puerto', status: 'Link interno' };</span>
+<span class="cstat-no" title="statement not covered" >          return obj;</span>
         }));
     });
     resolve(Promise.all(arrayPromise));
@@ -363,7 +369,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Feb 05 2020 03:11:41 GMT-0500 (Peru Standard Time)
+                at Wed Feb 05 2020 16:24:04 GMT-0500 (Peru Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

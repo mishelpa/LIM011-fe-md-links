@@ -3,8 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 
-const files = [];
-
 const isAbs = (route) => {
   let newRoute = '';
   if (path.isAbsolute(route)) newRoute = route;
@@ -13,6 +11,7 @@ const isAbs = (route) => {
 };
 
 const recursion = (route) => {
+  const files = [];
   const array = (docs) => {
     if (!fs.statSync(docs).isDirectory()) {
       if (path.extname(docs) === '.md') files.push(path.resolve(docs));
@@ -35,8 +34,6 @@ const createObjLink = (route) => {
   return links;
 };
 
-// const APIRequest = ruta => fetch(ruta).then(res => res.json());
-
 const getHttp = (route) => {
   const promise = new Promise((resolve, reject) => {
     const arrayPromise = [];
@@ -47,6 +44,11 @@ const getHttp = (route) => {
           if (res.ok) statusRoute = 'ok';
           else statusRoute = 'fail';
           const obj = { ...element, port: res.status, status: statusRoute };
+          return obj;
+        })
+        .catch((err) => {
+          console.log(err);
+          const obj = { ...element, port: 'No hay puerto', status: 'Link interno' };
           return obj;
         }));
     });

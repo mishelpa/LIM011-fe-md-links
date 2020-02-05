@@ -2,7 +2,7 @@
   "name": "md-links-jm",
   "version": "1.0.0",
   "description": "lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportan algunas estadísticas.",
-  "main": "index.js",
+  "main": "./index.js",
   "jest": {
     "automock": false
   },
@@ -21,7 +21,7 @@
     ""
   ],
   "bin": {
-    "md-links": "src/cli.js"
+    "md-links": "./cli.js"
   },
   "keywords": [
     "links",

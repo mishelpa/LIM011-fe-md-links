@@ -1,6 +1,6 @@
-# md-links-lab11 
+# MD - LINKS - JM
 
-*md-links-lab11* es una libreria para archivos de extensión .md
+*md-links-jm* es una libreria para archivos de extensión .md
 
 ## Tabla de contenidos
 
@@ -24,17 +24,30 @@ En este proyecto el objetivo es crear una herramienta usando Node.js, que lea y 
 
   ![Backlog](src/img/backlog.png)
 
-  [Enlace al backlog de planificación del proyecto](https://trello.com/invite/b/7VTjLYZJ/494a8b7b43e2f372089d830cd63f9f50/md-links-lab11)
+  [Ver backlog completo](https://trello.com/invite/b/7VTjLYZJ/494a8b7b43e2f372089d830cd63f9f50/md-links-lab11)
 
-  ### 2.1 Flujograma
+## 3. Instalación y configuración
+
+Para instalar md-links-jm, debe hacer lo siguiente: 
+
+    npm install --save -dev mishelpa/LIM011-fe-md-links
+
+Crear un archivo .js
+
+```js
+// Dentro del archivo creado, colocar
+const mdLinks = require('md-links-jm').mdLinks;
+ ```
+
+## 4. API
+
+  ### 4.1 Flujograma
+
+  El flujograma muestra el proceso de creación del API. 
 
 ![Flujograma de desarrollo](src/img/flujograma.jpg)
 
-## 3. Instalación
-
-    npm install --global mishelpa/LIM011-fe-md-links
-
-## 4. API
+### 4.2 Uso
 
 El módulo se puede importar en otros scripts de Node.js y ofrece la siguiente interfaz:
 
@@ -46,19 +59,19 @@ El módulo se puede importar en otros scripts de Node.js y ofrece la siguiente i
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links encontrados. 
 
- Cuando options es igual a { validate: true }
+ ***Cuando options es igual a { validate: true }***
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require('md-links-jm').mdLinks;
 
-mdLinks.mdLinks("./some/example.md", { validate: true })
+mdLinks("./some/example.md", { validate: true })
 ```
- Cuando options es igual a { validate: false }
+ ***Cuando options es igual a { validate: false }***
   
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require('md-links-jm').mdLinks;
 
-mdLinks.mdLinks("./some/example.md", { validate: false })
+mdLinks("./some/example.md", { validate: false })
 ```
 
 ##### Valor de retorno
@@ -72,14 +85,14 @@ las siguientes propiedades:
 
 #### Ejemplo
 
-* Cuando options es igual a { validate: true }
+***Cuando options es igual a { validate: true }***
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require('md-links-jm').mdLinks;
 
-mdLinks.mdLinks("./some/example.md", { validate: true })
-  .then(links => {
-    console.log(links)
+mdLinks("./some/example.md", { validate: true })
+  .then(data => {
+    console.log(data)
   })
   .catch(console.error);
   ```
@@ -87,22 +100,21 @@ mdLinks.mdLinks("./some/example.md", { validate: true })
 *Resultado* 
 
 ```js
-[{ href: 'https://github.com/merunga/pildora-recursion',
+[{  href: 'https://github.com/merunga/pildora-recursion',
     text: 'Pill de recursión - repositorio',
-    file:
-     '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/README.md',
+    file: '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/README.md',
     port: 200,
     status: 'ok' }]
 
 ```
-* * Cuando options es igual a { validate: false }
+***Cuando options es igual a { validate: false }***
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require("md-links-jm").mdLinks;
 
-mdLinks.mdLinks("./some/example.md", { validate: false })
-  .then(links => {
-    console.log(links)
+mdLinks("./some/example.md", { validate: false })
+  .then(data => {
+    console.log(data)
   })
   .catch(console.error);
 ```
@@ -110,7 +122,7 @@ mdLinks.mdLinks("./some/example.md", { validate: false })
 *Resultado* 
 
 ```js
-[{   href:'https://github.com/merunga/pildora-recursion',
+[{  href:'https://github.com/merunga/pildora-recursion',
     text:'Pill de recursión - repositorio',
     file:'/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/README.md' }]
 ```

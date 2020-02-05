@@ -132,17 +132,13 @@ Tambien se puede ejecutar a traves de la linea de comando.
 
 `md-links <path-to-file> [options]`
 
-## Inicio
+### 5.1. Flujograma
 
-md-links-lab11 es una herramienta que analiza archivos Markdown y verifica los links que contiene y reporta algunas estadisticas, ya que muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de la información que se quiere compartir.
+El flujograma muestra el proceso de implementar CLI. 
 
-## Flujograma
+![Flujograma CLI](src/img/cli.jpg)
 
-![Flujograma de desarrollo](src/img/flujograma.jpg)
-
-
-
-### CLI
+### 5.2 Uso
 
 El ejecutable de la aplicación se ejecuta de la siguiente
 manera a través de la terminal:

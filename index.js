@@ -39,7 +39,6 @@ const getHttp = (route) => {
   const promise = new Promise((resolve, reject) => {
     const arrayPromise = [];
     const arrayFetch = [];
-    const array2 = [];
     createObjLink(route).forEach((element) => {
       // Si las URL son validas.
       if (isUrl.isUri(`${element.href}`)) {
@@ -58,8 +57,7 @@ const getHttp = (route) => {
         arrayPromise.push(obj);
       }
     });
-    Promise.all(arrayFetch).then(data => array2 === data);
-    resolve(array2.concat(arrayPromise));
+    resolve(Promise.all(arrayFetch).then(data => (data.concat(arrayPromise))));
     reject(new Error('La ruta es incorrecta'));
   });
   return promise;

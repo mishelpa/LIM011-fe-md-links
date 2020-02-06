@@ -7,3 +7,6 @@ newLink.mdLinks('/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFol
   .then((data) => {
     console.log(data);
   });
+
+  console.log(process.argv);
+  

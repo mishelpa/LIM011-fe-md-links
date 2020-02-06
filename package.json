@@ -53,8 +53,9 @@
   },
   "homepage": "https://github.com/mishelpa/LIM011-fe-md-links#readme",
   "dependencies": {
+    "jest-fetch-mock": "^3.0.1",
     "marked": "^0.8.0",
     "node-fetch": "^2.6.0",
-    "jest-fetch-mock": "^3.0.1"
+    "valid-url": "^1.0.9"
   }
 }

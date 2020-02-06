@@ -2,6 +2,7 @@ const marked = require('marked');
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
+const isUrl = require('valid-url');
 
 const isAbs = (route) => {
   let newRoute = '';
@@ -37,22 +38,28 @@ const createObjLink = (route) => {
 const getHttp = (route) => {
   const promise = new Promise((resolve, reject) => {
     const arrayPromise = [];
+    const arrayFetch = [];
+    const array2 = [];
     createObjLink(route).forEach((element) => {
-      arrayPromise.push(fetch(`${element.href}`)
-        .then((res) => {
-          let statusRoute;
-          if (res.ok) statusRoute = 'ok';
-          else statusRoute = 'fail';
-          const obj = { ...element, port: res.status, status: statusRoute };
-          return obj;
-        })
-        .catch((err) => {
-          console.log(err);
-          const obj = { ...element, port: 'No hay puerto', status: 'Link interno' };
-          return obj;
-        }));
+      // Si las URL son validas.
+      if (isUrl.isUri(`${element.href}`)) {
+        arrayFetch.push(fetch(`${element.href}`)
+          .then((res) => {
+            let statusRoute;
+            if (res.ok) statusRoute = 'ok';
+            else statusRoute = 'fail';
+            const obj = { ...element, port: res.status, status: statusRoute };
+            return obj;
+          }));
+      }
+      // Si las URL no son validas.ejm: Cuando son links al mismo documento.
+      if (!isUrl.isUri(`${element.href}`)) {
+        const obj = { ...element, port: 'null', status: 'interno' };
+        arrayPromise.push(obj);
+      }
     });
-    resolve(Promise.all(arrayPromise));
+    Promise.all(arrayFetch).then(data => array2 === data);
+    resolve(array2.concat(arrayPromise));
     reject(new Error('La ruta es incorrecta'));
   });
   return promise;

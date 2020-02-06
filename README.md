@@ -7,8 +7,8 @@
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
 * [2. Backlog](#2-backlog-del-proyecto)
 * [3. Instalación](#3-instalación)
-* [4. API](#5-API)
-* [5. CLI](#6-CLI) 
+* [4. API](#4-API)
+* [5. CLI](#5-CLI) 
 
 ***
 
@@ -53,20 +53,21 @@ El módulo se puede importar en otros scripts de Node.js y ofrece la siguiente i
 
 #### `md-Links(path, options)`
 
-##### Argumentos
+#### a) Argumentos
 
 - `path`: el usuario debe colocar una ruta absoluta o relativa al archivo o directorio.
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links encontrados. 
 
- ***Cuando options es igual a { validate: true }***
+***Cuando options es igual a { validate: true }***
 
 ```js
 const mdLinks = require('md-links-jm').mdLinks;
 
 mdLinks("./some/example.md", { validate: true })
 ```
- ***Cuando options es igual a { validate: false }***
+
+  ***Cuando options es igual a { validate: false }***
   
 ```js
 const mdLinks = require('md-links-jm').mdLinks;
@@ -74,7 +75,7 @@ const mdLinks = require('md-links-jm').mdLinks;
 mdLinks("./some/example.md", { validate: false })
 ```
 
-##### Valor de retorno
+#### b) Valor de retorno
 
 La función retorna una promesa que resuelve un `Array` de objetos, donde cada objeto representa un link y contiene
 las siguientes propiedades:
@@ -163,11 +164,14 @@ $ md-links "./some/example.md" --validate
 ./some/example.md http://algo.com/2/3/ ok 200 Link a algo 
 ./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
 ./some/example.md http://google.com/ ok 301 Google
+./some/example.md #3-instalación interno null 3. Instalación
 ```
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
 URL.
+
+Vemos tambien que en la ultima linea incluye `interno` y `null` debido a que el link encontrado en el documento es un hipervinculo al mismo documento por lo cual ya no es necesario hacer una petición HTTP.
 
 ##### `--stats`
 
@@ -176,8 +180,8 @@ básicas sobre los links.
 
 ```
 $ md-links ./some/example.md --stats
-Total: 3
-Unique: 3
+Total: 4
+Unique: 4
 ```
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
@@ -185,7 +189,7 @@ necesiten de los resultados de la validación.
 
 ```
 $ md-links ./some/example.md --stats --validate
-Total: 3
-Unique: 3
+Total: 4
+Unique: 4
 Broken: 1
 ```

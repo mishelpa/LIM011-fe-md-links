@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.36% </span>
+                <span class="strong">97.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>75/83</span>
+                <span class='fraction'>79/81</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/24</span>
+                <span class='fraction'>22/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>15/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.28% </span>
+                <span class="strong">98.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>65/72</span>
+                <span class='fraction'>68/69</span>
             </div>
         
             
@@ -163,10 +163,7 @@
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L108'></a><a href='#L108'>108</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -197,7 +194,7 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -208,28 +205,25 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,9 +234,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -318,7 +312,8 @@ const getHttp = (route) =&gt; {
     const arrayPromise = [];
     const arrayFetch = [];
     createObjLink(route).forEach((element) =&gt; {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (isUrl.isUri(`${element.href}`)) {
+      // Si las URL son validas.
+      if (isUrl.isUri(`${element.href}`)) {
         arrayFetch.push(fetch(`${element.href}`)
           .then((res) =&gt; {
             let statusRoute;
@@ -326,20 +321,16 @@ const getHttp = (route) =&gt; {
             else <span class="cstat-no" title="statement not covered" >statusRoute = 'fail';</span>
             const obj = { ...element, port: res.status, status: statusRoute };
             return obj;
-          })
-          .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
-<span class="cstat-no" title="statement not covered" >            console.log(err);</span>
-            const obj = <span class="cstat-no" title="statement not covered" >{ ...element, port: 'No hay puerto', status: 'Link interno' };</span>
-<span class="cstat-no" title="statement not covered" >            return obj;</span>
           }));
       }
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (!isUrl.isUri(`${element.href}`)) {
-        const obj = <span class="cstat-no" title="statement not covered" >{ ...element, port: 'No hay puerto', status: 'Link interno' };</span>
-<span class="cstat-no" title="statement not covered" >        arrayPromise.push(obj);</span>
+      // Si las URL no son validas.ejm: Cuando son links al mismo documento.
+      if (!isUrl.isUri(`${element.href}`)) {
+        const obj = { ...element, port: 'null', status: 'interno' };
+        arrayPromise.push(obj);
       }
     });
-    resolve(Promise.all(arrayFetch).concat(arrayPromise));
-<span class="cstat-no" title="statement not covered" >    reject(new Error('La ruta es incorrecta'));</span>
+    resolve(Promise.all(arrayFetch).then(data =&gt; (data.concat(arrayPromise))));
+    reject(new Error('La ruta es incorrecta'));
   });
   return promise;
 };
@@ -393,7 +384,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Feb 05 2020 19:01:12 GMT-0500 (Peru Standard Time)
+                at Fri Feb 07 2020 10:37:48 GMT-0500 (Peru Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

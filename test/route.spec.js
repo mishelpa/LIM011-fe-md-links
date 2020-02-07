@@ -10,6 +10,11 @@ const array = [
     text: 'Markdown',
     file: '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md',
   },
+  {
+    file: '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md',
+    href: '#1-resumen-del-proyecto',
+    text: '1. Resumen del proyecto',
+  },
 ];
 
 const array2 = [
@@ -20,13 +25,20 @@ const array2 = [
     status: 'ok',
     port: 200,
   },
+  {
+    file: '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md',
+    href: '#1-resumen-del-proyecto',
+    port: 'null',
+    status: 'interno',
+    text: '1. Resumen del proyecto',
+  },
 ];
 
-const validate = '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md https://es.wikipedia.org/wiki/Markdown/ ok 200 Markdown\n';
+const validate = '/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md https://es.wikipedia.org/wiki/Markdown/ ok 200 Markdown\n/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md #1-resumen-del-proyecto interno null 1. Resumen del proyecto\n';
 
-const stats = 'Total: 1 \nUnique: 1';
+const stats = 'Total: 2 \nUnique: 2';
 
-const valStat = 'Total: 1 \nUnique: 1 \nBroken: 0';
+const valStat = 'Total: 2 \nUnique: 2 \nBroken: 0';
 
 // Test de la funcion isAbsolutePath
 describe('isAbs', () => {
@@ -50,7 +62,6 @@ describe('createObjLink', () => {
     expect(index.createObjLink('./src/')).toStrictEqual(array);
   });
 });
-
 describe('getHttp', () => {
   it('deberia retornar un array de objetos de 5 propiedades', () => index.getHttp('./src').then((data) => {
     expect(data).toStrictEqual(array2);

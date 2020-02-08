@@ -4,6 +4,7 @@
   "description": "lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportan algunas estadísticas.",
   "main": "./index.js",
   "jest": {
+    
     "automock": false
   },
   "directories": {

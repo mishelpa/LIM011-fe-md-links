@@ -1,6 +1,8 @@
 require('jest-fetch-mock').enableMocks();
 const fetch = require('node-fetch');
+const path = require('path');
 const index = require('../index');
+
 
 const ruta = ['/home/mishel/Desktop/Laboratoria/LIM011-fe-md-links/src/testFolder/read.md'];
 
@@ -95,7 +97,7 @@ describe('testing api', () => {
     fetch.resetMocks();
   });
 
-  it('calls google and returns data to me', () => {
+  it('calls wikipedia and returns data to me', () => {
     fetch.mockResponseOnce(JSON.stringify(array2[0]));
 
     // assert on the response
@@ -107,3 +109,5 @@ describe('testing api', () => {
     expect(fetch.mock.calls[0][0]).toEqual('https://es.wikipedia.org/wiki/Markdown/');
   });
 });
+
+console.log(path.resolve('src/testFolder/read.md'));

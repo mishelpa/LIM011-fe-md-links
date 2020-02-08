@@ -7,7 +7,7 @@ const isUrl = require('valid-url');
 const isAbs = (route) => {
   let newRoute = '';
   if (path.isAbsolute(route)) newRoute = route;
-  else newRoute = path.resolve(route);
+  else newRoute = path.join(process.cwd(), route);
   return newRoute;
 };
 
@@ -15,10 +15,11 @@ const recursion = (route) => {
   const files = [];
   const array = (docs) => {
     if (!fs.statSync(docs).isDirectory()) {
-      if (path.extname(docs) === '.md') files.push(path.resolve(docs));
+      console.log(docs);
+      if (path.extname(docs) === '.md') files.push(docs);
       return files;
     }
-    fs.readdirSync(docs, 'utf-8').forEach(doc => array(path.resolve(docs, doc)));
+    fs.readdirSync(docs, 'utf-8').forEach(doc => array(path.join(docs, doc)));
     return files;
   };
   array(isAbs(route));

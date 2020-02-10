@@ -1,34 +1,28 @@
 #!/usr/bin/env node
 
-const cli = require('./index');
+const cli = require('./functions');
+const mdLinks = require('./index');
 
-const path = process.argv[2];
-const option = { validate: false, stats: false };
+const [, , ...[path, validate, stats]] = process.argv;
 
-process.argv.forEach((element) => {
-  if (element === '--validate') option.validate = true;
-  if (element === '--stats') option.stats = true;
-});
+if (!path) console.log('Colocar ruta y opciones');
 
-if (!path) {
-  console.log('No existe ruta/ Ingrese ruta');
+if (path && (stats === '--stats' || !stats)) {
+  if (validate === '--validate') {
+    mdLinks(path, { validate: true })
+      .then(arr => ((stats === '--stats') ? cli.options(arr, 'valStat') : cli.options(arr, 'validate')))
+      .then(data => console.log(data));
+  }
+  if (path && validate === '--stats') {
+    mdLinks(path, { validate: false })
+      .then(arr => cli.options(arr, 'stats'))
+      .then(data => console.log(data));
+  }
+} else {
+  console.log('Las opciones validas son:\n--validate\n--stats\n--validate --stats');
 }
 
-if (path && option.validate) {
-  cli.mdLinks(path, { validate: true })
-    .then((arr) => {
-      let text = '';
-      if (option.stats) text = cli.options(arr, 'valStat');
-      if (!option.stats) text = cli.options(arr, 'validate');
-      console.log(text);
-    });
-}
-if (path && !option.validate) {
-  cli.mdLinks(path, { validate: false })
-    .then((arr) => {
-      let valor;
-      if (option.stats) valor = cli.options(arr, 'stats');
-      if (!option.stats) valor = arr;
-      console.log(valor);
-    });
+if (path && !validate) {
+  mdLinks(path, { validate: false })
+    .then(data => console.log(data));
 }

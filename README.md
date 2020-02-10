@@ -26,7 +26,7 @@ En este proyecto el objetivo es crear una herramienta usando Node.js, que lea y 
 
   [Ver Planificación Trello](https://trello.com/invite/b/7VTjLYZJ/494a8b7b43e2f372089d830cd63f9f50/md-links-lab11)
 
-  [Ver Planificación Github](https://github.com/mishelpa/LIM011-fe-md-links/projects)
+  [Ver Planificación Github](https://github.com/mishelpa/LIM011-fe-md-links/projects/1)
 
 ## 3. Instalación y configuración
 
@@ -38,7 +38,7 @@ Crear un archivo .js
 
 ```js
 // Dentro del archivo creado, colocar
-const mdLinks = require('md-links-jm').mdLinks;
+const mdLinks = require('md-links-jm');
  ```
 
 ## 4. API

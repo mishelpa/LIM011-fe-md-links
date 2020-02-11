@@ -34,7 +34,6 @@ const fetchUrl = url => fetch(url);
 
 const getHttp = (route) => {
   const promise = new Promise((resolve, reject) => {
-    reject(new Error('La ruta es incorrecta'));
     const arrayFetch = [];
     createObjLink(route).forEach((ele) => {
       // Si las URL son validas.
@@ -54,6 +53,7 @@ const getHttp = (route) => {
       }
     });
     resolve(Promise.all(arrayFetch));
+    reject(new Error('La ruta es incorrecta'));
   });
   return promise;
 };

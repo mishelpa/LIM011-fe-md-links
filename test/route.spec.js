@@ -8,9 +8,6 @@ fetchMock
   .mock('https://es.wikipedia.org/wiki/Markdown', 404)
   .mock('https://github.com/merunga/pildora-recursion/hy', 200);
 
-// fetchMock.config.sendAsJson = false;
-// jest.mock('node-fetch');
-
 const ruta = [path.join(process.cwd(), '/test/testFolder/read.md')];
 const array = [
   {

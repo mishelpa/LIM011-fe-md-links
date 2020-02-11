@@ -34,7 +34,7 @@ const fetchUrl = url => fetch(url);
 
 const getHttp = (route) => {
   const promise = new Promise((resolve, reject) => {
-    const arrayPromise = [];
+    reject(new Error('La ruta es incorrecta'));
     const arrayFetch = [];
     createObjLink(route).forEach((ele) => {
       // Si las URL son validas.
@@ -50,11 +50,10 @@ const getHttp = (route) => {
       // Si las URL no son validas.ejm: Cuando son links al mismo documento.
       if (!isUrl.isUri(`${ele.href}`)) {
         const obj = { ...ele, port: 'null', status: 'INTERNO' };
-        arrayPromise.push(obj);
+        arrayFetch.push(obj);
       }
     });
-    resolve(Promise.all(arrayFetch).then(data => (data.concat(arrayPromise))));
-    reject(new Error('La ruta es incorrecta'));
+    resolve(Promise.all(arrayFetch));
   });
   return promise;
 };
@@ -91,5 +90,3 @@ module.exports = {
   options,
   fetchUrl,
 };
-
-// fetchUrl('https://es.wikipedia.org/wiki/Markdown').then(data => console.log(data.status));

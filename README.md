@@ -152,6 +152,14 @@ Antes de ello debe poner el siguiente comando:
 
        npm link
 
+En ocasiones nos podemos encontrar con una sorpresa al intentar ejecutar un script en un servidor. El problema/restricción más común es que se nos lance una excepción indicando que:
+
+      «No se puede cargar el archivo XXXX.ps1 porque en el sistema está deshabilitada la ejecución de scripts. Vea «get-help about_signing» para obtener más información».
+
+Por tanto, el error es que en el sistema esta deshabilitada la ejecución de scripts. Si abrimos el Windows PowerShell como administrador y ejecutamos el comando *«Get-ExecutionPolicy»* nos tendría que devolver «Unrestricted» o lo que es lo mismo «Restringido». Para cambiar esta configuración basta con ejecutar **«Set-ExecutionPolicy Unrestricted»**
+
+En ese momento ya se pueden ejecutar scripts sin problemas
+
 ##### Options
 
 ###### `--validate`

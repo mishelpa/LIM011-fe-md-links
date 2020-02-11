@@ -2,13 +2,7 @@
   "name": "md-links-jm",
   "version": "1.0.0",
   "description": "lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportan algunas estadísticas.",
-  "main": "./index.js",
-  "jest": {
-    "automock": false
-  },
-  "directories": {
-    "test": "test"
-  },
+  "main": "./index.js",  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mishelpa/LIM011-fe-md-links.git"
@@ -16,10 +10,7 @@
   "author": {
     "name": "Mishel Paredes",
     "email": "judithparedesartica@gmail.com"
-  },
-  "files": [
-    ""
-  ],
+  },  
   "bin": {
     "md-links": "./cli.js"
   },

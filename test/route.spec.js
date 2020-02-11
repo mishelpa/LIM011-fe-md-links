@@ -1,11 +1,17 @@
-require('jest-fetch-mock').enableMocks();
+// require('jest-fetch-mock').enableMocks();
 const path = require('path');
 const all = require('../functions');
 const mdLinks = require('../index');
+const fetchMock = require('../__mocks__/node-fetch');
 
+fetchMock
+  .mock('https://es.wikipedia.org/wiki/Markdown', 404)
+  .mock('https://github.com/merunga/pildora-recursion/hy', 200);
+
+// fetchMock.config.sendAsJson = false;
+// jest.mock('node-fetch');
 
 const ruta = [path.join(process.cwd(), '/test/testFolder/read.md')];
-
 const array = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
@@ -29,8 +35,8 @@ const array2 = [
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
     file: path.join(process.cwd(), '/test/testFolder/read.md'),
-    status: 'OK',
-    port: 200,
+    status: 'FAIL',
+    port: 404,
   },
   {
     file: path.join(process.cwd(), '/test/testFolder/read.md'),
@@ -48,11 +54,13 @@ const array2 = [
   },
 ];
 
-const validate = `${path.join(process.cwd(), '/test/testFolder/read.md')} https://es.wikipedia.org/wiki/Markdown OK 200 Markdown\n${path.join(process.cwd(), '/test/testFolder/read.md')} https://github.com/merunga/pildora-recursion/hy OK 200 Recursion\n${path.join(process.cwd(), '/test/testFolder/read.md')} #1-resumen-del-proyecto INTERNO null 1. Resumen del proyecto\n`;
+const validate = `${path.join(process.cwd(), '/test/testFolder/read.md')} https://es.wikipedia.org/wiki/Markdown FAIL 404 Markdown
+${path.join(process.cwd(), '/test/testFolder/read.md')} https://github.com/merunga/pildora-recursion/hy OK 200 Recursion
+${path.join(process.cwd(), '/test/testFolder/read.md')} #1-resumen-del-proyecto INTERNO null 1. Resumen del proyecto\n`;
 
 const stats = 'Total: 3 \nUnique: 3';
 
-const valStat = 'Total: 3 \nUnique: 3 \nBroken: 0';
+const valStat = 'Total: 3 \nUnique: 3 \nBroken: 1';
 
 // Test de la funcion isAbsolutePath
 describe('isAbs', () => {
@@ -75,6 +83,13 @@ describe('createObjLink', () => {
   it('deberia mostrar un array de objetos', () => {
     expect(all.createObjLink('./test/')).toStrictEqual(array);
   });
+});
+
+// eslint-disable-next-line jest/no-focused-tests
+describe('fetchUrl', () => {
+  it('deberia mandar peticion HTTP', () => all.fetchUrl('https://es.wikipedia.org/wiki/Markdown').then((resp) => {
+    expect(resp.status).toBe(404);
+  }));
 });
 
 describe('getHttp', () => {

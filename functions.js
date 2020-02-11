@@ -67,7 +67,7 @@ const options = (arr, option) => {
   arr.forEach((obj) => {
     text += `${obj.file} ${obj.href} ${obj.status} ${obj.port} ${obj.text}\n`;
     hrefString.push(obj.href);
-    if (obj.status === 'fail') count += 1;
+    if (obj.status === 'FAIL') count += 1;
   });
   if (option === 'validate') data = text;
   if (option === 'stats') {
@@ -89,4 +89,7 @@ module.exports = {
   recursion,
   getHttp,
   options,
+  fetchUrl,
 };
+
+// fetchUrl('https://es.wikipedia.org/wiki/Markdown').then(data => console.log(data.status));

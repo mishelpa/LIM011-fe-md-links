@@ -148,6 +148,10 @@ manera a través de la terminal:
 
 `md-links <path-to-file> [options]`
 
+Antes de ello debe poner el siguiente comando:
+
+       npm link
+
 ##### Options
 
 ###### `--validate`

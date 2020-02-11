@@ -64,7 +64,7 @@ El módulo se puede importar en otros scripts de Node.js y ofrece la siguiente i
 ***Cuando options es igual a { validate: true }***
 
 ```js
-const mdLinks = require('md-links-jm').mdLinks;
+const mdLinks = require('md-links-jm');
 
 mdLinks("./some/example.md", { validate: true })
 ```
@@ -72,7 +72,7 @@ mdLinks("./some/example.md", { validate: true })
   ***Cuando options es igual a { validate: false }***
   
 ```js
-const mdLinks = require('md-links-jm').mdLinks;
+const mdLinks = require('md-links-jm');
 
 mdLinks("./some/example.md", { validate: false })
 ```
@@ -91,7 +91,7 @@ las siguientes propiedades:
 ***Cuando options es igual a { validate: true }***
 
 ```js
-const mdLinks = require('md-links-jm').mdLinks;
+const mdLinks = require('md-links-jm');
 
 mdLinks("./some/example.md", { validate: true })
   .then(data => {
@@ -113,7 +113,7 @@ mdLinks("./some/example.md", { validate: true })
 ***Cuando options es igual a { validate: false }***
 
 ```js
-const mdLinks = require("md-links-jm").mdLinks;
+const mdLinks = require("md-links-jm");
 
 mdLinks("./some/example.md", { validate: false })
   .then(data => {

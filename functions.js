@@ -8,6 +8,7 @@ const isAbs = route => (path.isAbsolute(route) ? route : path.join(process.cwd()
 
 const recursion = (route) => {
   const files = [];
+
   const array = (docs) => {
     if (!fs.statSync(docs).isDirectory()) {
       if (path.extname(docs) === '.md') files.push(docs);
@@ -16,6 +17,7 @@ const recursion = (route) => {
     fs.readdirSync(docs, 'utf-8').forEach(doc => array(path.join(docs, doc)));
     return files;
   };
+
   array(isAbs(route));
   return files;
 };

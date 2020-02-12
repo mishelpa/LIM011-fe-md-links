@@ -37,23 +37,23 @@ const array2 = [
   },
   {
     file: path.join(process.cwd(), '/test/testFolder/read.md'),
-    href: 'https://github.com/merunga/pildora-recursion/hy',
-    text: 'Recursion',
-    port: 200,
-    status: 'OK',
-  },
-  {
-    file: path.join(process.cwd(), '/test/testFolder/read.md'),
     href: '#1-resumen-del-proyecto',
     port: 'null',
     status: 'INTERNO',
     text: '1. Resumen del proyecto',
   },
+  {
+    file: path.join(process.cwd(), '/test/testFolder/read.md'),
+    href: 'https://github.com/merunga/pildora-recursion/hy',
+    text: 'Recursion',
+    port: 200,
+    status: 'OK',
+  },
 ];
 
 const validate = `${path.join(process.cwd(), '/test/testFolder/read.md')} https://es.wikipedia.org/wiki/Markdown FAIL 404 Markdown
-${path.join(process.cwd(), '/test/testFolder/read.md')} https://github.com/merunga/pildora-recursion/hy OK 200 Recursion
-${path.join(process.cwd(), '/test/testFolder/read.md')} #1-resumen-del-proyecto INTERNO null 1. Resumen del proyecto\n`;
+${path.join(process.cwd(), '/test/testFolder/read.md')} #1-resumen-del-proyecto INTERNO null 1. Resumen del proyecto
+${path.join(process.cwd(), '/test/testFolder/read.md')} https://github.com/merunga/pildora-recursion/hy OK 200 Recursion\n`;
 
 const stats = 'Total: 3 \nUnique: 3';
 

@@ -20,19 +20,15 @@ Estos archivos Markdown normalmente contienen links (vínculos/ligas) que muchas
 
 En este proyecto el objetivo es crear una herramienta usando Node.js, que lea y analice archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
-## 2. Backlog
+## 2. Backlog del proyecto.
 
-  ![Backlog](src/img/backlog.png)
-
-  [Ver Planificación Trello](https://trello.com/invite/b/7VTjLYZJ/494a8b7b43e2f372089d830cd63f9f50/md-links-lab11)
-
-  [Ver Planificación Github](https://github.com/mishelpa/LIM011-fe-md-links/projects/1)
+  La lista de actividades realizadas durante el proyecto fue realizada en [Trello](https://trello.com/invite/b/7VTjLYZJ/494a8b7b43e2f372089d830cd63f9f50/md-links-lab11) y [Github](https://github.com/mishelpa/LIM011-fe-md-links/projects/1)
 
 ## 3. Instalación y configuración
 
 Para instalar md-links-jm, debe hacer lo siguiente: 
 
-    npm install --save -dev mishelpa/LIM011-fe-md-links
+    npm install -g mishelpa/LIM011-fe-md-links
 
 Crear un archivo .js
 
@@ -148,18 +144,6 @@ manera a través de la terminal:
 
 `md-links <path-to-file> [options]`
 
-Antes de ello debe poner el siguiente comando:
-
-       npm link
-
-En ocasiones nos podemos encontrar con una sorpresa al intentar ejecutar un script en un servidor. El problema/restricción más común es que se nos lance una excepción indicando que:
-
-      «No se puede cargar el archivo XXXX.ps1 porque en el sistema está deshabilitada la ejecución de scripts. Vea «get-help about_signing» para obtener más información».
-
-Por tanto, el error es que en el sistema esta deshabilitada la ejecución de scripts. Si abrimos el Windows PowerShell como administrador y ejecutamos el comando *«Get-ExecutionPolicy»* nos tendría que devolver «Unrestricted» o lo que es lo mismo «Restringido». Para cambiar esta configuración basta con ejecutar **«Set-ExecutionPolicy Unrestricted»**
-
-En ese momento ya se pueden ejecutar scripts sin problemas
-
 ##### Options
 
 ###### `--validate`
@@ -202,7 +186,7 @@ También podemos combinar `--stats` y `--validate` para obtener estadísticas qu
 necesiten de los resultados de la validación.
 
 ```
-$ md-links ./some/example.md --stats --validate
+$ md-links ./some/example.md --validate --stats
 Total: 4
 Unique: 4
 Broken: 1
